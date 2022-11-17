@@ -37,8 +37,8 @@ export default function AvailableMeals(props) {
     },
   ];
 
-  const quantityAddHandler = (quantity)=>{
-       props.onQuantityAdd(quantity)
+  const mealAddHandler = (newMeal)=>{
+       props.onMealAdd(newMeal)
   }
 
   return (
@@ -50,7 +50,7 @@ export default function AvailableMeals(props) {
             title={meal.title}
             name={meal.name}
             price={meal.price}
-            onQuantityAdd={quantityAddHandler}
+            onMealAdd={mealAddHandler}
           />
         );
       })}

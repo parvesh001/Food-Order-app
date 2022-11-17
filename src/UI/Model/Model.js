@@ -7,11 +7,11 @@ const Backdrop = () => {
   return <div className={classes.backdrop}></div>;
 };
 
-const ModelOverlay = () => {
-  return <Card className={classes["model-overlay"]}></Card>;
+const ModelOverlay = (props) => {
+  return <Card className={classes["model-overlay"]}>{props.children}</Card>;
 };
 
-export default function Model() {
+export default function Model(props) {
   return (
     <React.Fragment>
       {ReactDOM.createPortal(
@@ -19,7 +19,7 @@ export default function Model() {
         document.getElementById("backdrop-root")
       )}
       {ReactDOM.createPortal(
-        <ModelOverlay></ModelOverlay>,
+        <ModelOverlay>{props.children}</ModelOverlay>,
         document.getElementById("model-overlay-root")
       )}
     </React.Fragment>

@@ -3,13 +3,13 @@ import AvailableMeals from './AvailableMeals'
 import MealsSummary from './MealsSummary'
 
 export default function Meals(props) {
-  const quantityAddHandler = (quantity)=>{
-    props.onQuantityAdd(quantity)
+  const mealAddHandler = (newMeal)=>{
+    props.onMealAdd(newMeal)
   }
   return (
     <React.Fragment>
       <MealsSummary/>
-      <AvailableMeals onQuantityAdd={quantityAddHandler}/>
+      <AvailableMeals onMealAdd={mealAddHandler} />
     </React.Fragment>
   )
 }

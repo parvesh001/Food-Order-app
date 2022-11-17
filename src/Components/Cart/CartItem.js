@@ -7,11 +7,11 @@ export default function CartItem(props) {
   return (
     <div className={Style["cart-item"]}>
       <div className={Style["cart-item-information"]}>
-        <h2>dish</h2>
+        <h2>{props.title}</h2>
         <div>
-          <span>$22</span>
+          <span>{props.price}</span>
         </div>
-        <div className={Style["item-power"]}>2</div>
+        <div className={Style["item-power"]}>{props.itemPower}</div>
       </div>
 
       <div className={Style["cart-item-controls"]}>

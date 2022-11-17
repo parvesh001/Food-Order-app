@@ -1,10 +1,20 @@
-import React from 'react'
-import style from './Cart.module.css'
+import React from "react";
+import Style from "./Cart.module.css";
+import CartItem from "./CartItem";
 
-export default function Cart() {
+export default function Cart(props) {
   return (
-    <div>
-      
+    <div className={Style.cart}>
+     {props.meals.map((meal) => {
+        return (
+          <CartItem
+            title={meal.title}
+            price={meal.price}
+            itemPower={meal.mealPower}
+          />
+        );
+      })}
+      <button onClick={props.onClick}>close</button>
     </div>
-  )
+  );
 }
