@@ -1,0 +1,37 @@
+.meal-item {
+  width: 100%;
+  padding: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  text-transform: capitalize;
+}
+.meal-item .about-meal-item {
+  display: flex;
+  padding: 0.3rem;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.about-meal-item em {
+  color: rgb(49, 49, 49);
+  font-weight: 500;
+}
+.about-meal-item div span {
+  color: rgb(108, 0, 0);
+  font-weight: 600;
+}
+.meal-item .fix-meal-quantity {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.3rem;
+  margin-bottom: .7rem;
+}
+.fix-meal-quantity label{
+    font-weight: 600;
+}
+.fix-meal-quantity input{
+    width: 20%;
+}
+.plus-btn{
+    display: block;
+    margin-left: auto;
+}

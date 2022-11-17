@@ -1,0 +1,22 @@
+.meals-summary{
+    width: 52rem;
+    max-width: 90%;
+    height: fit-content;
+    padding: 2rem 1.5rem;
+    background:rgb(85, 84, 84);
+    color:#fff;
+    text-align: center;
+    text-transform: capitalize;
+    position: relative;
+    top:-11rem;
+    left:50%;
+    transform: translateX(-50%);
+    margin-bottom: 2rem;
+}
+.meals-summary h2{
+    font-weight: bold;
+    margin-bottom: .5rem;
+}
+.meals-summary p{
+    margin-top: 1.5rem;
+}

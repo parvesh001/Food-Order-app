@@ -1,0 +1,11 @@
+.bg-img{
+    width: 100vw;
+    height: 27rem;
+    background-color: rgb(47, 46, 46);
+    overflow: hidden;
+}
+.bg-img img{
+    width: 110%;
+    height: 100%;
+    transform: rotateZ(-5deg) translateY(-4rem) translateX(-1rem);
+}
