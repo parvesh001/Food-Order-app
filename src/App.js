@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useReducer, useState } from "react";
 import "./App.css";
 import Header from "./Components/Header/Header";
 import BackgroundImg from "./Components/BackgroundImage/BackgroundImg";
@@ -7,44 +7,84 @@ import MaxQuantity from "./Store/Max-Quantity";
 import Model from "./UI/Model/Model";
 import Cart from "./Components/Cart/Cart";
 
-function App() {
-  const [meals, setMeals] = useState([
-    { title: "Burger", name: "delecious burger", price: 20, mealPower: 3 },
-  ]);
-  const [mealsQuantity, setMealsQuantity] = useState(0);
-  const [clicked, setClicked] = useState(false);
-
-  const mealAddHandler = (newMeal) => {
-    let mealsQuant = meals.reduce((acc, curr) => {
+const mealReducer = (state, action) => {
+  if (action.type === "ADDED_MEAL") {
+    let mealsQuant = state.meals.reduce((acc, curr) => {
       acc += Number(curr.mealPower);
       return acc;
     }, 0);
-    mealsQuant += Number(newMeal.mealPower);
-    setMealsQuantity(mealsQuant);
+    mealsQuant += Number(action.value.mealPower);
+  
+    let totalAmount = state.meals.reduce((acc, curr) => {
+      acc += Number(curr.price) * Number(curr.mealPower);
+      return acc;
+    }, 0);
+    totalAmount += Number(action.value.price) * Number(action.value.mealPower);
 
-    setMeals((prevMeals) => {
-      const allMeals = [...prevMeals];
-      allMeals.push(newMeal);
-      return allMeals;
-    });
+    return {
+    meals:[...state.meals, action.value],
+    mealsQuantity:mealsQuant,
+    mealsTotalAmount: totalAmount
+    }
+  }
+
+  if(action.type === "INCREMENT_HANDLER"){
+    return {
+      meals: [...state.meals],
+      mealsQuantity: Number(state.mealsQuantity) + 1,
+      mealsTotalAmount: state.mealsTotalAmount
+    }
+  }
+  if(action.type === "DECREMENT_HANDLER"){
+    return {
+      meals: [...state.meals],
+      mealsQuantity: Number(state.mealsQuantity) - 1,
+      mealsTotalAmount: state.mealsTotalAmount
+    }
+  }
+
+  return {
+    meals: [],
+    mealsQuantity: 0,
+    mealsTotalAmount: 0,
+  };
+};
+
+function App() {
+  const [clicked, setClicked] = useState(false);
+  const [mealState, dispatchMSAction] = useReducer(mealReducer, {
+    meals: [],
+    mealsQuantity: 0,
+    mealsTotalAmount: 0
+  });
+
+  const mealAddHandler = (newMeal) => {
+    dispatchMSAction({ type: "ADDED_MEAL", value: newMeal });
   };
 
   const cartClickHandler = () => {
     setClicked(true);
   };
-  const closeHandler =  () => {
-    setClicked(false)
+
+  const incrementHandler = ()=> {
+    dispatchMSAction({type:"INCREMENT_HANDLER"})
+  }
+  const decrementHandler = ()=> {
+    dispatchMSAction({type:"DECREMENT_HANDLER"})
   }
 
   return (
     <MaxQuantity.Provider
       value={{
-        mealsQuantity: mealsQuantity,
+        mealsQuantity: mealState.mealsQuantity,
+        totalAmount: mealState.mealsTotalAmount,
+        increment:incrementHandler,
+        decrement:decrementHandler
       }}
     >
       {clicked && (
         <Model>
-          <Cart onClick={closeHandler} meals={meals} />
+          <Cart meals={mealState.meals} />
         </Model>
       )}
       <Header onClick={cartClickHandler} />
@@ -55,3 +95,7 @@ function App() {
 }
 
 export default App;
+
+
+
+

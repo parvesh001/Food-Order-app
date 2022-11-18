@@ -1,0 +1,17 @@
+.cart-total{
+    padding:.5rem;
+    display: flex;
+    flex-direction: column;
+    gap:0.5rem;
+    margin-top: 1rem;
+}
+.cart-total .total-amount{
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+}
+.cart-total .amount-controlers{
+    display: flex;
+    gap:.5rem;
+    align-self: flex-end;
+}
