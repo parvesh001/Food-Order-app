@@ -65,21 +65,18 @@ function App() {
   const cartClickHandler = () => {
     setClicked(true);
   };
+  const closeCartHandler = () => {
+    setClicked(false);
+  }
 
-  const incrementHandler = ()=> {
-    dispatchMSAction({type:"INCREMENT_HANDLER"})
-  }
-  const decrementHandler = ()=> {
-    dispatchMSAction({type:"DECREMENT_HANDLER"})
-  }
 
   return (
     <MaxQuantity.Provider
       value={{
         mealsQuantity: mealState.mealsQuantity,
         totalAmount: mealState.mealsTotalAmount,
-        increment:incrementHandler,
-        decrement:decrementHandler
+        onClose:closeCartHandler,
+        onCartClick:cartClickHandler
       }}
     >
       {clicked && (
@@ -87,7 +84,7 @@ function App() {
           <Cart meals={mealState.meals} />
         </Model>
       )}
-      <Header onClick={cartClickHandler} />
+      <Header/>
       <BackgroundImg />
       <Meals onMealAdd={mealAddHandler} />
     </MaxQuantity.Provider>

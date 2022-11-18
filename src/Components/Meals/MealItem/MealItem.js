@@ -6,16 +6,18 @@ export default function MealItem(props) {
   const [quantity, setQuantity] = useState(0);
 
   const quantityChangeHandler = (event) => {
-    setQuantity(event.target.value);
+    
+      {event.target.value > 0 && setQuantity(event.target.value)};
+    
   };
   const mealAddHandler = () => {
     const meal = {
       title: props.title,
       name: props.name,
       price: props.price,
-      mealPower: quantity
+      mealPower: quantity,
     };
-    props.onMealAdd(meal)
+    {meal.mealPower > 0 && props.onMealAdd(meal)};
   };
 
   return (

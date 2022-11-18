@@ -12,7 +12,7 @@ export default function Cart(props) {
             key={Math.random().toString()}
             title={meal.title}
             price={meal.price}
-            itemPower={meal.mealPower}
+            mealPower={meal.mealPower}
           />
         );
       })}
