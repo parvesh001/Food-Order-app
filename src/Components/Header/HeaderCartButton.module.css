@@ -1,0 +1,31 @@
+.header-cart-btn{
+    padding: .5rem 1.7rem;
+    background: rgb(53, 1, 1);
+    display: flex;
+    color:#fff;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    border-radius: 15px;
+}
+.header-cart-btn:hover{
+    background: rgb(124, 1, 1);
+    box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.75);
+}
+.header-cart-btn .cart{
+    font-size: 1rem;
+    margin-right: .7rem;
+    padding-top: 4px;
+}
+.header-cart-btn .header-cart-title{
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: capitalize;
+    margin-right: .7rem;
+    padding-top: 4px;
+}
+.header-cart-btn .header-cart-quantity{
+    padding: 3px 5px;
+    background: rgb(108, 0, 0);
+    border-radius: 15px;
+}

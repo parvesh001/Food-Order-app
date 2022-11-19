@@ -19,19 +19,5 @@
   color: rgb(108, 0, 0);
   font-weight: 600;
 }
-.meal-item .fix-meal-quantity {
-  display: flex;
-  justify-content: flex-end;
-  gap: 0.3rem;
-  margin-bottom: .7rem;
-}
-.fix-meal-quantity label{
-    font-weight: 600;
-}
-.fix-meal-quantity input{
-    width: 20%;
-}
-.plus-btn{
-    display: block;
-    margin-left: auto;
-}
+
+

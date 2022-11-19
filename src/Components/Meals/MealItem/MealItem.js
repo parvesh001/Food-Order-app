@@ -1,46 +1,37 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import classes from "./MealItem.module.css";
-import PlusBtn from "../../../UI/Buttons/PlusBtn";
+import MealInputForm from "./MealInputForm";
+import CartContext from "../../../Store/Cart-Context";
 
 export default function MealItem(props) {
-  const [quantity, setQuantity] = useState(0);
+  const price = `$${props.price.toFixed(2)}`;
+  const cartCtx = useContext(CartContext);
 
-  const quantityChangeHandler = (event) => {
+  const addMealHandler = (amount) => {
     
-      {event.target.value > 0 && setQuantity(event.target.value)};
-    
-  };
-  const mealAddHandler = () => {
-    const meal = {
-      title: props.title,
-      name: props.name,
-      price: props.price,
-      mealPower: quantity,
-    };
-    {meal.mealPower > 0 && props.onMealAdd(meal)};
-  };
+    cartCtx.addMeal({
+      amount:amount,
+      id:props.id,
+      title:props.title,
+      price:props.price
+    })
+  }
 
   return (
-    <div className={classes["meal-item"]}>
-      <div className={classes["about-meal-item"]}>
-        <h3>{props.title}</h3>
-        <em>{props.name}</em>
+    <React.Fragment>
+      <li className={classes["meal-item"]}>
+        <div className={classes["about-meal-item"]}>
+          <h3>{props.title}</h3>
+          <em>{props.name}</em>
+          <div>
+            <span>{price}</span>
+          </div>
+        </div>
         <div>
-          <span>${props.price}</span>
+          <MealInputForm onMealAdd={addMealHandler}/>
         </div>
-      </div>
-      <div className={classes["fix-meal-item"]}>
-        <div className={classes["fix-meal-quantity"]}>
-          <label htmlFor="meal-quantity">quantity</label>
-          <input
-            onChange={quantityChangeHandler}
-            type="number"
-            name="meal-quantity"
-            id="meal-quantity"
-          />
-        </div>
-        <PlusBtn onClick={mealAddHandler} className={classes["plus-btn"]} />
-      </div>
-    </div>
+      </li>
+      <hr />
+    </React.Fragment>
   );
 }

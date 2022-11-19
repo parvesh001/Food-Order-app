@@ -2,18 +2,20 @@ import React, { useContext } from "react";
 import Style from "./CartTotal.module.css";
 import ButtonTransparent from "../../UI/Buttons/ButtonTransparent";
 import Button from "../../UI/Buttons/Button";
-import MaxQuantity from "../../Store/Max-Quantity";
+import CartContext from "../../Store/Cart-Context";
 
-export default function CartTotal() {
-  const ctx = useContext(MaxQuantity);
+export default function CartTotal(props) {
+  const cartCtx = useContext(CartContext);
+  let totalAmount = `$${cartCtx.totalAmount.toFixed(2)}`
+
   return (
     <div className={Style["cart-total"]}>
       <div className={Style["total-amount"]}>
         <h2>Total Amount</h2>
-        <h2>${ctx.totalAmount}</h2>
+        <h2>{totalAmount}</h2>
       </div>
       <div className={Style["amount-controlers"]}>
-        <ButtonTransparent onClick={ctx.onClose}>Close</ButtonTransparent>
+        <ButtonTransparent onClick={props.onCartClose}>Close</ButtonTransparent>
         <Button>Order</Button>
       </div>
     </div>

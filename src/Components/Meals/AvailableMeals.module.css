@@ -9,11 +9,11 @@
     left:50%;
     transform: translateX(-50%);
     margin-bottom: 2rem;
-    animation: readyMeals 3s ease;
+    animation: readyMeals 2s ease;
 }
 @keyframes readyMeals {
     from{
-        top:-5rem;
+        top:5rem;
     }
     to{
         top:-11rem;
