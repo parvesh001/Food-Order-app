@@ -1,13 +1,14 @@
 .header{
-    height: 4rem;
+    height: 5rem;
     width: 100vw;
     position: fixed;
     inset:0 0 auto 0;
     background: rgb(108, 0, 0);
-    padding:0.8rem 5rem;
+    /* padding:0.8rem 5rem; */
     display: flex;
     justify-content: space-between;
     z-index: 999;
+    align-items: center;
 }
 .header h2{
     font-size: 2rem;
@@ -15,3 +16,7 @@
     color:#fff;
     text-shadow: 2px 2px 15px rgba(0, 0, 0, 0.75);
 }
+
+/* @media only screen and (max-with:600px) {
+    
+} */

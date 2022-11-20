@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import "./App.css";
+import style from './App.module.css'
 import Header from "./Components/Header/Header";
 import BackgroundImg from "./Components/BackgroundImage/BackgroundImg";
 import Meals from "./Components/Meals/Meals";
 import Cart from "./Components/Cart/Cart";
 import ContextProvider from "./Store/ContextProvider";
+
 
 function App() {
   const [clicked, setClicked] = useState(false);

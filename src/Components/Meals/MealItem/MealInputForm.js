@@ -1,6 +1,8 @@
 import React, { useRef } from "react";
 import InputForm from "../../../UI/Input/InputForm";
 import PlusBtn from "../../../UI/Buttons/PlusBtn";
+import globalStyle from '../../../Assets/global-styles/bootstrap.min.module.css'
+import cx from 'classnames'
 
 export default function MealInputForm(props) {
     const mealInputRef = useRef();
@@ -29,7 +31,7 @@ export default function MealInputForm(props) {
           defalutvalue: "1",
         }}
       />
-      <PlusBtn type="submit" />
+      <PlusBtn className={cx(globalStyle['ms-auto'], globalStyle['d-block'])} type="submit" />
     </form>
   );
 }
