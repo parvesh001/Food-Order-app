@@ -1,5 +1,5 @@
 #Food Order App
-This is one of the outputs of React course that i am pursuing. This is a sort of demo food order app that includes interective UIs made with the help of React.
+###This is one of the outputs of React course that i am pursuing. This is a sort of demo food order app that includes interective UIs made with the help of React.
 
 ##Used Hooks
 1. useState hook : Very useful to make website user interective. Without useState one can't perceive to make interective and dynamic UIs. It accepts a initial state which can be changed with conditions (e.g. if button has been clicked or some kind of data has been entered).
