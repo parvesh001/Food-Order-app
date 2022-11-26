@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import style from './App.module.css'
+import './App.css'
 import Header from "./Components/Header/Header";
 import BackgroundImg from "./Components/BackgroundImage/BackgroundImg";
 import Meals from "./Components/Meals/Meals";

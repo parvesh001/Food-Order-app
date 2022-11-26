@@ -16,6 +16,7 @@ export default function MealInputForm(props) {
         return;
     }
     props.onMealAdd(enteredAmount)
+    
   };
 
   return (

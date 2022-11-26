@@ -50,6 +50,7 @@ export default function AvailableMeals() {
       />
     );
   });
+  console.log(mealList)
 
   return (
     <Card className={classes["available-meals"]}>

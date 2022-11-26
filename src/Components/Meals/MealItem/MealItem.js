@@ -16,7 +16,7 @@ export default function MealItem(props) {
       price:props.price
     })
   }
-
+  // console.log(props.name)
   return (
     <React.Fragment>
       <li className={classes["meal-item"]}>
