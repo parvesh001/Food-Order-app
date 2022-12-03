@@ -16,7 +16,7 @@ export default function CartTotal(props) {
       </div>
       <div className={Style["amount-controlers"]}>
         <ButtonTransparent onClick={props.onCartClose}>Close</ButtonTransparent>
-        <Button>Order</Button>
+        {cartCtx.mealItems.length > 0 && <Button>Order</Button>}
       </div>
     </div>
   );
