@@ -27,7 +27,7 @@ export default function Cart(props) {
   return (
     <Model>
       {cartMeals}
-      <CartTotal onCartClose={props.onCartClose} />
+      <CartTotal onCartClose={props.onCartClose} onOrder={props.onOrder} />
     </Model>
   );
 }

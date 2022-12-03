@@ -6,7 +6,12 @@ import CartContext from "../../Store/Cart-Context";
 
 export default function CartTotal(props) {
   const cartCtx = useContext(CartContext);
-  let totalAmount = `$${cartCtx.totalAmount.toFixed(2)}`
+  let totalAmount = `$${cartCtx.totalAmount.toFixed(2)}`;
+
+  const orderHandler = () => {
+    props.onOrder();
+    props.onCartClose();
+  };
 
   return (
     <div className={Style["cart-total"]}>
@@ -16,7 +21,9 @@ export default function CartTotal(props) {
       </div>
       <div className={Style["amount-controlers"]}>
         <ButtonTransparent onClick={props.onCartClose}>Close</ButtonTransparent>
-        {cartCtx.mealItems.length > 0 && <Button>Order</Button>}
+        {cartCtx.mealItems.length > 0 && (
+          <Button onClick={orderHandler}>Order</Button>
+        )}
       </div>
     </div>
   );
