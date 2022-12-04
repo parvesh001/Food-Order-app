@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import classes from "./OrderForm.module.css";
 import Button from "../../UI/Buttons/Button";
 import useInput from "../../Hooks/use-input";
+import useFetch from "../../Hooks/use-fetch";
 
 export default function OrderForm(props) {
   const [userData, setUserData] = useState({});
+  const { isLoading, backendIntraction: postUser } = useFetch();
   const {
     inputValue: firstNameValue,
     inputIsValid: firstNameIsValid,
@@ -35,28 +37,6 @@ export default function OrderForm(props) {
     formIsValid = true;
   }
 
-  const setUserToServer = async () => {
-    try {
-      const requestConfig = await fetch(
-        "https://food-order-9ea7b-default-rtdb.firebaseio.com/users-data.json",
-        {
-          method: "POST",
-          body: JSON.stringify(userData),
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
-      if(!requestConfig.ok){
-        throw new Error('something went wrong!')
-      }
-      const data = await requestConfig.json();
-      console.log(data.name)
-    } catch (err) {
-      console.log(err.message)
-    }
-  };
-
   const formSubmitHandler = (event) => {
     event.preventDefault();
     if (!formIsValid) return;
@@ -65,7 +45,14 @@ export default function OrderForm(props) {
       lastName: lastNameValue,
       email: emailValue,
     });
-    setUserToServer();
+    postUser({
+      url: "https://food-order-9ea7b-default-rtdb.firebaseio.com/users-data.json",
+      method: "POST",
+      body: userData,
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
     firstNameReset();
     lastNameReset();
     emailReset();
@@ -129,7 +116,7 @@ export default function OrderForm(props) {
           type="submit"
           className={classes["btn"]}
         >
-          Submit
+          {isLoading? 'loading...' :'Submit'}
         </Button>
         <Button type="button" onClick={props.onBack} className={classes["btn"]}>
           Back

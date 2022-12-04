@@ -1,27 +1,21 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect } from "react";
 import classes from "./AvailableMeals.module.css";
 import MealItem from "./MealItem/MealItem";
 import Card from "../../UI/Card/Card";
 import globalStyle from "../../Assets/global-styles/bootstrap.min.module.css";
 import cx from "classnames";
+import useFetch from "../../Hooks/use-fetch";
 
 export default function AvailableMeals() {
   const [dummyMeals, setDummyMeals] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(false);
+  const { isLoading, error, backendIntraction: fetchMeals } = useFetch();
 
-  const fetchMealsHandler = useCallback(async () => {
-    setIsLoading(true);
-    try {
-      const response = await fetch(
-        "https://food-order-9ea7b-default-rtdb.firebaseio.com/dummyMeals.json"
-      );
-      if (!response.ok) {
-        throw new Error("Something went wrong!");
-      }
-      const data = await response.json();
+  useEffect(() => {
+    const requestConfig = {
+      url: "https://food-order-9ea7b-default-rtdb.firebaseio.com/dummyMeals.json",
+    };
+    const applyData = (data) => {
       const loadedMeals = [];
-
       for (let key in data) {
         loadedMeals.push({
           id: key,
@@ -30,17 +24,10 @@ export default function AvailableMeals() {
           price: data[key].price,
         });
       }
-
       setDummyMeals([...loadedMeals]);
-    } catch (err) {
-      setError(err.message);
-    }
-    setIsLoading(false);
-  }, []);
-
-  useEffect(() => {
-    fetchMealsHandler();
-  }, [fetchMealsHandler]);
+    };
+    fetchMeals(requestConfig, applyData);
+  }, [fetchMeals]);
 
   const mealList = dummyMeals.map((meal) => {
     return (
@@ -59,8 +46,8 @@ export default function AvailableMeals() {
   ) : (
     mealList
   );
-  if(error){
-    listContent = <p className={classes['error-text']}>{error}</p>
+  if (error) {
+    listContent = <p className={classes["error-text"]}>{error}</p>;
   }
 
   return (
