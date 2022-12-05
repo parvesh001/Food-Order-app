@@ -12,6 +12,7 @@ export default function useFetch() {
         body: JSON.stringify(requestConfig.body) || null,
         headers: requestConfig.headers || {},
       });
+      // console.log(response)
       if (!response.ok) {
         throw new Error("sth went wrong!!");
       }

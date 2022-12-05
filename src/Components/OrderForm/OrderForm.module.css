@@ -1,15 +1,14 @@
 .form-container{
-    background-color: rgb(108,0,0);
+    /* background-color: rgb(108,0,0); */
     height: fit-content;
-    width: 42rem;
-    max-width: 90%;
+    width: 100%;
     padding: 1.5rem;
-    box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.59);
+    /* box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.59); */
     border-radius: 15px;
-    margin-top: 15rem;
     margin-left: auto;
     margin-right: auto;
-    color:#fff;
+    color:rgb(108,0,0);
+    font-weight: bold;
 }
 
 .form-control{
@@ -17,7 +16,7 @@
 }
 .form-control.invalid input,.form-control.invalid input:focus{
     border-color: red;
-    background: rgb(247, 95, 95);
+    background: rgb(255, 185, 185);
 }
 
 .form-control label, input{
@@ -27,11 +26,11 @@
 .form-control input{
     color: rgb(74, 72, 72);
     border-radius: 5px;
-    border:2px solid rgb(74, 72, 72);
+    border:1px solid rgb(74, 72, 72);
 }
 .form-control input:focus{
-    border:2px solid #fff;
-    background: rgb(251, 251, 187);
+    border:2px solid rgb(245, 243, 93);
+    background: rgb(245, 245, 153);
     outline: none;
 }
 .form-control:nth-child(3){

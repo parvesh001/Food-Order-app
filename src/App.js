@@ -21,22 +21,22 @@ function App() {
     setOrdered(true);
     setClicked(false);
   };
-  const backClickHandler = ()=>{
+  const formResetHandler = ()=>{
     setOrdered(false)
-    console.log('clicked')
   }
+  
 
   return(
     <ContextProvider>
       {clicked && (
         <Cart onCartClose={closeCartHandler} onOrder={orderMealHandler} />
       )}
+      {ordered && <OrderForm onFormReset={formResetHandler}/>}
       <Header onCartClick={cartClickHandler} />
-      {ordered && <OrderForm onBack={backClickHandler}/>}
-      {!ordered && <BackgroundImg />}
-     {!ordered && <main>
+      <BackgroundImg />
+      <main>
         <Meals />
-      </main>}
+      </main>
     </ContextProvider>
   );
 }
