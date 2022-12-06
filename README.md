@@ -21,4 +21,10 @@
 
 - **USEREF**: This hook ensures access to DOM elements. Returns an object with property 'current' which has reference to targeted DOM element.
 
+- **CUSTOME HOOK**: Custome hooks are very useful tools which makes things easier and faster. With custome hooks we can reutilize functionality defined in custome hook. They are like inbuilt hooks, but the difference is that developers fabricate these hooks to their own project.
+
+## API and FETCH
+In this project, React APIs have been utilized to get rid of the long cyncle of sharing data through parents. Besides, the 'fetch' method has been utilized to fetch data from a backend server handled by **firebase**.
+
+
 
