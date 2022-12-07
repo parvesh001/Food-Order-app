@@ -2,6 +2,7 @@ import { useState, useCallback } from "react";
 
 export default function useFetch() {
   const [isLoading, setIsLoading] = useState(false);
+  const [formSubmitted, setFormSubmited] = useState(false);
   const [error, setError] = useState(null);
 
   const backendIntraction = useCallback(async (requestConfig, applyData) => {
@@ -22,11 +23,13 @@ export default function useFetch() {
       setError(err.message);
     }
     setIsLoading(false);
-  },[]);
+    setFormSubmited(true);
+  }, []);
 
   return {
     isLoading,
     error,
     backendIntraction,
+    formSubmitted,
   };
 }

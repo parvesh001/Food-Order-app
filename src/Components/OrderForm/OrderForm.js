@@ -4,10 +4,11 @@ import Button from "../../UI/Buttons/Button";
 import useInput from "../../Hooks/use-input";
 import useFetch from "../../Hooks/use-fetch";
 import Model from "../../UI/Model/Model";
+import { BsFillCheckCircleFill } from "react-icons/bs";
 
 export default function OrderForm(props) {
   const [userData, setUserData] = useState({});
-  const { isLoading, backendIntraction: postUser } = useFetch();
+  const { isLoading, formSubmitted, backendIntraction: postUser } = useFetch();
   const {
     inputValue: firstNameValue,
     inputIsValid: firstNameIsValid,
@@ -59,7 +60,7 @@ export default function OrderForm(props) {
     emailReset();
     setTimeout(() => {
       props.onFormReset();
-    }, 1000);
+    }, 2500);
   };
 
   const firstNameClass = firstNameIsInvalid
@@ -79,6 +80,9 @@ export default function OrderForm(props) {
         className={classes["form-container"]}
         autoComplete="off"
       >
+       {formSubmitted && <div className={classes['form-submitted']}>
+        <p>Submitted <BsFillCheckCircleFill/></p>
+        </div>}
         <div className={classes["name-field"]}>
           <div className={firstNameClass}>
             <label htmlFor="first-name">First Name</label>

@@ -33,7 +33,7 @@ export default function HeaderCartButton(props) {
       onClick={props.onClick}
       className={cx(
         btnClass,
-        globalStyle["p-2"],
+        globalStyle["px-3"],globalStyle["py-2"],
         globalStyle["px-md-5"],
         globalStyle["py-md-3"]
       )}

@@ -5,7 +5,7 @@
     overflow: hidden;
 }
 .bg-img img{
-    width: 101%;
+    width: 110%;
     height: 100%;
     transform: rotateZ(-5deg) translateY(-4rem) translateX(-1rem);
 }

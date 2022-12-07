@@ -1,9 +1,7 @@
 .form-container{
-    /* background-color: rgb(108,0,0); */
     height: fit-content;
     width: 100%;
-    padding: 1.5rem;
-    /* box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.59); */
+    padding: 1rem;
     border-radius: 15px;
     margin-left: auto;
     margin-right: auto;
@@ -55,3 +53,14 @@
     color:#000;
 }
 
+.form-submitted{
+    text-align: center;
+    padding-bottom:1rem 
+}
+.form-submitted p{
+    padding: .5rem 1rem; 
+    background: rgb(55, 214, 55);
+    display:inline;
+    color:#fff;
+    border-radius:15px;
+}

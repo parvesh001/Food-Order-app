@@ -20,6 +20,16 @@
   border-radius: 15px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
   z-index: 9999;
+  animation: model .5s ease;
+}
+
+@keyframes model {
+  from{
+    transform: translateX(-50%) scale(0);
+  }
+  to{
+    transform:translateX(-50%) scale(1);
+  }
 }
 
 /* Width */

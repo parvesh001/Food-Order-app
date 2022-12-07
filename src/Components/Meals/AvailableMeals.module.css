@@ -1,28 +1,31 @@
 .available-meals{
     width: 60rem;
     max-width: 90%;
-    /* padding: 1rem; */
+    position: relative;
     height: fit-content;
     background-color: #fff;
-    position: relative;
     top:-11rem;
     left:50%;
     transform: translateX(-50%);
     margin-bottom: 2rem;
     animation: readyMeals 2s ease;
 }
-.loading-text{
+.loading-text, .error-text{
     font-size: 1.5rem;
     text-align: center;
     margin-bottom: .5rem;
+    position: relative;
+    margin: -10.5rem;
+}
+.loading-text{
+    color:#fff;
 }
 .error-text{
     color:rgb(147, 0, 0);
-    font-size: 1.2rem;
 }
 @keyframes readyMeals {
     from{
-        top:5rem;
+        top:8rem;
     }
     to{
         top:-11rem;

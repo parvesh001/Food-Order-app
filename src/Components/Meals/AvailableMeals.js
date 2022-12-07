@@ -29,6 +29,14 @@ export default function AvailableMeals() {
     fetchMeals(requestConfig, applyData);
   }, [fetchMeals]);
 
+  if(isLoading){
+    return <p className={classes["loading-text"]}>Items are being loaded...</p>
+  }
+
+  if (error) {
+    return <p className={classes["error-text"]}>{error}!!</p>
+  }
+
   const mealList = dummyMeals.map((meal) => {
     return (
       <MealItem
@@ -41,15 +49,6 @@ export default function AvailableMeals() {
     );
   });
 
-  let listContent = isLoading ? (
-    <p className={classes["loading-text"]}>Items are being loaded...</p>
-  ) : (
-    mealList
-  );
-  if (error) {
-    listContent = <p className={classes["error-text"]}>{error}</p>;
-  }
-
   return (
     <Card className={classes["available-meals"]}>
       <ul
@@ -57,10 +56,10 @@ export default function AvailableMeals() {
           globalStyle["ps-1"],
           globalStyle["ps-md-5"],
           globalStyle["pe-md-3"],
-          globalStyle["pt-md-3"]
+          globalStyle["pt-md-3"],
         )}
       >
-        {listContent}
+        {mealList}
       </ul>
     </Card>
   );
