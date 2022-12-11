@@ -5,11 +5,9 @@ import BackgroundImg from "./Components/BackgroundImage/BackgroundImg";
 import Meals from "./Components/Meals/Meals";
 import Cart from "./Components/Cart/Cart";
 import ContextProvider from "./Store/ContextProvider";
-import OrderForm from "./Components/OrderForm/OrderForm";
 
 function App() {
   const [clicked, setClicked] = useState(false);
-  const [ordered, setOrdered] = useState(false);
 
   const cartClickHandler = () => {
     setClicked(true);
@@ -17,21 +15,13 @@ function App() {
   const closeCartHandler = () => {
     setClicked(false);
   };
-  const orderMealHandler = () => {
-    setOrdered(true);
-    setClicked(false);
-  };
-  const formResetHandler = ()=>{
-    setOrdered(false)
-  }
   
 
   return(
     <ContextProvider>
       {clicked && (
-        <Cart onCartClose={closeCartHandler} onOrder={orderMealHandler} />
+        <Cart onCartClose={closeCartHandler} />
       )}
-      {ordered && <OrderForm onFormReset={formResetHandler}/>}
       <Header onCartClick={cartClickHandler} />
       <BackgroundImg />
       <main>

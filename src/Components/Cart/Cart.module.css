@@ -1,0 +1,35 @@
+.itemList{
+    max-height: 10rem;
+    overflow-y: scroll;
+}
+
+@media only screen and (max-width:460px){
+  .itemList{
+    padding-left: 0;
+  }
+}
+.closeBtn{
+  display: block;
+  margin-left: auto;
+}
+
+/* Width */
+.itemList::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #fff; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: rgb(171, 166, 166); 
+    border-radius: 15px
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgb(116, 116, 116); 
+  }
